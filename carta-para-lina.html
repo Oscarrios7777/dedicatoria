@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8e8e8">
+  <meta name="description" content="Una carta llena de amor para Lina.">
+  <title>Para Lina, con muchísimo amor</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #563b43;
+      --muted: #9a737c;
+      --rose: #bd6478;
+      --paper: #fffdfa;
+      --line: #efd9d8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(22px, 5vw, 64px) 16px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 16%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+        radial-gradient(ellipse at 88% 78%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+        linear-gradient(145deg, #f8e7e8, #f5eeee 52%, #f3e1e4);
+      background-size: 34px 34px, 42px 42px, auto;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .letter {
+      width: min(100%, 760px);
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 7vw, 72px) clamp(24px, 8vw, 82px);
+      background: var(--paper);
+      border: 1px solid rgba(189, 100, 120, .2);
+      border-radius: 5px;
+      box-shadow: 0 22px 65px rgba(103, 54, 67, .14), 0 3px 10px rgba(103, 54, 67, .06);
+    }
+
+    .letter::before, .letter::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border: 1px solid rgba(189, 100, 120, .13);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .letter::before { top: -88px; right: -54px; box-shadow: 0 0 0 12px rgba(189,100,120,.035), 0 0 0 25px rgba(189,100,120,.025); }
+    .letter::after { bottom: -96px; left: -55px; box-shadow: 0 0 0 12px rgba(189,100,120,.035), 0 0 0 25px rgba(189,100,120,.025); }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin-bottom: 14px;
+      color: var(--rose);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .topline::before, .topline::after { content: ""; width: 34px; height: 1px; background: #e6bfc5; }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      color: #8f4c5d;
+      font-size: clamp(30px, 6vw, 43px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+    .heart {
+      display: block;
+      margin: 15px auto 24px;
+      color: #c96d80;
+      text-align: center;
+      font-size: 23px;
+      line-height: 1;
+    }
+    .divider {
+      width: 54px;
+      height: 1px;
+      margin: 0 auto 30px;
+      background: #e7c5c7;
+    }
+    .body-copy p {
+      margin: 0 0 19px;
+      font-size: clamp(16px, 2.4vw, 18px);
+      line-height: 1.82;
+      text-align: left;
+      hyphens: auto;
+    }
+    .body-copy p:last-child { margin-bottom: 0; }
+    .signoff {
+      margin-top: 32px;
+      color: #8f4c5d;
+      font-size: clamp(18px, 2.7vw, 21px);
+      font-style: italic;
+      line-height: 1.7;
+      text-align: right;
+    }
+    .signature-heart { color: #c96d80; font-style: normal; }
+
+    @media (max-width: 480px) {
+      body { padding: 16px 12px; }
+      .letter { padding: 34px 23px; }
+      .body-copy p { line-height: 1.72; margin-bottom: 17px; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 18mm; }
+      body { display: block; padding: 0; background: white; }
+      .letter { width: 100%; padding: 10mm 12mm; border: 0; border-radius: 0; box-shadow: none; }
+      .letter::before, .letter::after { display: none; }
+      .body-copy p { font-size: 12pt; line-height: 1.65; }
+      h1 { font-size: 28pt; }
+    }
+  </style>
+</head>
+<body>
+  <main class="letter" aria-labelledby="letter-title">
+    <div class="topline">Una carta para ti</div>
+    <h1 id="letter-title">Para Lina, mi niña hermosa</h1>
+    <span class="heart" aria-hidden="true">♥</span>
+    <div class="divider" aria-hidden="true"></div>
+
+    <section class="body-copy" aria-label="Carta de amor">
+      <p>Mi amor, quiero que sepas lo mucho que significas para mí. Sé que a veces eres enojona, que tienes tus cambios de humor y que de vez en cuando puedes ser un poquito difícil de entender, pero ¿sabes qué? Hasta eso me encanta de ti. Porque no solo amo tus momentos bonitos, también amo cada parte de tu forma de ser.</p>
+
+      <p>Me encanta esa ternura que tienes, incluso cuando intentas hacerte la enojada. Me encanta verte feliz, escucharte hablar de los juegos que tanto te gustan y saber que puedo compartir contigo esos pequeños momentos que, aunque parezcan simples, para mí significan muchísimo.</p>
+
+      <p>Y qué decir de lo hermosa que eres... Eres preciosa en todos los aspectos. No solamente por tu carita, tus ojitos o tu sonrisa, sino también por tu personalidad, tus ocurrencias, tu manera de expresarte y hasta esas pequeñas cosas que quizás tú no notas, pero que yo adoro.</p>
+
+      <p>No quiero que nunca dudes de lo especial que eres para mí. No necesitas ser perfecta, no necesitas cambiar tu forma de ser ni dejar de enojarte para que te ame. Me gustas tal y como eres, con tus días buenos, tus días difíciles, tus risas y tus enojos.</p>
+
+      <p>Quiero seguir creando recuerdos contigo, jugar juntos, molestarnos, reírnos por tonterías y acompañarte en cada momento. Quiero ser esa persona que te recuerde lo hermosa que eres incluso cuando tú no puedas verlo.</p>
+
+      <p>Te amo por ser tú, mi niña. Y si pudiera volver a elegir, volvería a elegirte a ti, con todos tus enojitos, tu ternura y esa belleza tan tuya que me tiene completamente enamorado.</p>
+    </section>
+
+    <footer class="signoff">Con muchísimo amor,<br>para mi niña preciosa. <span class="signature-heart">❤️</span></footer>
+  </main>
+</body>
+</html>
