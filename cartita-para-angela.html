@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#39252f">
+  <meta name="description" content="Una cartita especial para Ángela, escrita con mucho amor.">
+  <title>Una cartita para Ángela</title>
+  <style>
+    :root {
+      --night: #39252f;
+      --night-soft: #503541;
+      --paper: #fff9ef;
+      --paper-edge: #eadcc9;
+      --rose: #d58b91;
+      --rose-dark: #9d5966;
+      --ink: #4a3740;
+      --muted: #947b7c;
+      --gold: #d8b982;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #fff8f1;
+      background:
+        radial-gradient(ellipse at 50% 10%, rgba(199, 135, 137, .17), transparent 38rem),
+        radial-gradient(ellipse at 10% 90%, rgba(210, 181, 135, .08), transparent 28rem),
+        linear-gradient(145deg, #30212a, var(--night) 56%, #49303a);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .page {
+      width: min(100% - 32px, 760px);
+      margin-inline: auto;
+      padding: clamp(42px, 8vw, 82px) 0 64px;
+    }
+
+    .intro { text-align: center; margin-bottom: 32px; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font: 700 10px/1.4 Arial, sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: #fff5eb;
+      font-weight: 400;
+      font-size: clamp(36px, 8vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+    }
+    .intro-note {
+      margin: 16px 0 0;
+      color: #ddc7c4;
+      font-size: clamp(15px, 3vw, 18px);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .envelope {
+      position: relative;
+      isolation: isolate;
+      width: min(100%, 560px);
+      min-height: 232px;
+      margin: 34px auto 0;
+      padding: 35px 26px 29px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--ink);
+      background: linear-gradient(150deg, #f0d6cb, #e8c4bd 58%, #ddb4b0);
+      border: 1px solid rgba(255, 246, 231, .36);
+      border-radius: 8px 8px 15px 15px;
+      box-shadow: 0 25px 55px rgba(12, 6, 9, .32), inset 0 1px rgba(255,255,255,.55);
+    }
+    .envelope::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(145deg, transparent 49.7%, rgba(160, 96, 103, .14) 50%, transparent 50.5%),
+                  linear-gradient(215deg, transparent 49.7%, rgba(160, 96, 103, .12) 50%, transparent 50.5%);
+      pointer-events: none;
+    }
+    .stamp {
+      position: absolute;
+      top: 15px;
+      right: 17px;
+      width: 48px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      color: #a75e6b;
+      background: rgba(255, 249, 239, .72);
+      border: 1px dashed rgba(157, 89, 102, .55);
+      font-size: 21px;
+      transform: rotate(7deg);
+    }
+    .envelope-copy { position: relative; z-index: 1; }
+    .to-label {
+      margin: 0 0 8px;
+      color: #82515b;
+      font: 700 10px/1.5 Arial, sans-serif;
+      letter-spacing: .23em;
+      text-transform: uppercase;
+    }
+    .to-name {
+      margin: 0;
+      color: #5f3b45;
+      font-size: clamp(29px, 6vw, 37px);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .open-button {
+      position: relative;
+      z-index: 2;
+      margin-top: 21px;
+      padding: 12px 22px;
+      color: #fffaf3;
+      background: #814955;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      box-shadow: 0 5px 13px rgba(87, 44, 54, .21);
+      font: 600 13px/1.2 Arial, sans-serif;
+      letter-spacing: .035em;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .open-button:hover { transform: translateY(-2px); background: #713e4a; box-shadow: 0 8px 18px rgba(87,44,54,.28); }
+    .open-button:focus-visible { outline: 3px solid #fff4dc; outline-offset: 4px; }
+
+    .letter-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows .8s cubic-bezier(.2,.75,.2,1), opacity .45s ease;
+    }
+    .letter-clip { min-height: 0; overflow: hidden; }
+    .letter {
+      margin: 0 auto;
+      width: min(100%, 650px);
+      padding: clamp(28px, 6vw, 58px) clamp(23px, 7vw, 66px);
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255,255,255,.52), rgba(255,255,255,.52)),
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(177,143,128,.12) 32px 33px),
+        var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-top: 0;
+      border-radius: 0 0 7px 7px;
+      box-shadow: 0 24px 50px rgba(12, 6, 9, .26);
+      transform: translateY(-18px);
+      transition: transform .7s cubic-bezier(.2,.75,.2,1);
+    }
+    .scene.opened .letter-wrap { grid-template-rows: 1fr; opacity: 1; }
+    .scene.opened .letter { transform: translateY(0); }
+    .scene.opened .envelope { border-radius: 8px 8px 2px 2px; }
+
+    .letter-kicker {
+      margin: 0 0 20px;
+      color: var(--rose-dark);
+      font: 700 10px/1.4 Arial, sans-serif;
+      letter-spacing: .22em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .letter h2 {
+      margin: 0 0 25px;
+      color: #704450;
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 400;
+      font-style: italic;
+      text-align: center;
+    }
+    .letter p {
+      margin: 0 0 17px;
+      font-size: clamp(16px, 2.7vw, 18px);
+      line-height: 1.82;
+      hyphens: auto;
+    }
+    .letter p:last-of-type { margin-bottom: 0; }
+    .signoff {
+      margin-top: 28px;
+      color: #754652;
+      font-size: clamp(18px, 3vw, 21px);
+      font-style: italic;
+      line-height: 1.65;
+      text-align: right;
+    }
+    .signoff strong { font-weight: 400; }
+    .little-heart { color: #bd6678; font-style: normal; }
+    .bottom-note {
+      margin: 25px 0 0;
+      color: #d9c5c2;
+      font: 11px/1.5 Arial, sans-serif;
+      letter-spacing: .13em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .bottom-note span { color: var(--rose); }
+
+    @media (max-width: 480px) {
+      .page { width: min(100% - 24px, 760px); padding-top: 38px; }
+      .envelope { min-height: 220px; padding-inline: 17px; }
+      .letter p { line-height: 1.72; }
+      .stamp { width: 39px; height: 47px; top: 12px; right: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      @page { size: A4; margin: 18mm; }
+      body { min-height: 0; color: #222; background: white; }
+      .page { width: 100%; padding: 0; }
+      .intro { margin-bottom: 15px; }
+      .eyebrow, .intro-note, .bottom-note { color: #555; }
+      h1 { color: #4b3039; font-size: 30pt; }
+      .envelope { display: none; }
+      .letter-wrap { display: block; opacity: 1; }
+      .letter-clip { overflow: visible; }
+      .letter { width: 100%; padding: 12mm; border: 1px solid #ddd; box-shadow: none; transform: none; background: white; }
+      .letter p { font-size: 12pt; line-height: 1.65; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">Unas palabras que me nacen del corazón</p>
+      <h1>Para mi Ángela</h1>
+      <p class="intro-note">Hay amores que se sienten como estar justo donde uno pertenece.</p>
+    </header>
+
+    <div class="scene" id="scene">
+      <section class="envelope" aria-label="Sobre para Ángela">
+        <div class="stamp" aria-hidden="true">♡</div>
+        <div class="envelope-copy">
+          <p class="to-label">Con todo mi amor, para</p>
+          <p class="to-name">Ángela</p>
+          <button class="open-button" id="openLetter" type="button" aria-expanded="false" aria-controls="letterContent">Abrir mi cartita</button>
+        </div>
+      </section>
+
+      <div class="letter-wrap" id="letterContent">
+        <div class="letter-clip">
+          <article class="letter" aria-labelledby="letterTitle">
+            <p class="letter-kicker">Escrito pensando en ti</p>
+            <h2 id="letterTitle">Mi amor, Ángela</h2>
+
+            <p>A veces me pongo a pensar en lo afortunado que soy de tenerte en mi vida. Hace ya tanto tiempo me abriste un espacio en la tuya, y todavía me emociona recordarlo. Gracias por haberme aceptado, por dejarme acercarme a ti y por permitirme compartir tantos pedacitos de la vida a tu lado. Nunca quiero acostumbrarme a algo tan bonito.</p>
+
+            <p>Gracias por ser tú conmigo. Por escucharme, por tenerme paciencia y por hacer que hasta los días más comunes se sientan especiales. Me encanta tu forma de ser, tus detalles, tus ocurrencias y esa manera tan tuya de hacerme sentir querido. No siempre encuentro las palabras perfectas, pero sí tengo clarísimo cuánto valoro tenerte.</p>
+
+            <p>Quiero que sepas que no estás sola. En los días alegres voy a estar para celebrar contigo, y en los días pesados voy a estar para escucharte, abrazarte y recordarte que podemos con lo que venga. No porque tenga todas las respuestas, sino porque te amo y quiero caminar contigo, paso a paso.</p>
+
+            <p>Prometo seguir eligiéndote, cuidando lo nuestro y encontrando nuevas formas de hacerte sentir amada. Quiero estar ahí para ti, con cariño, con respeto y con todo lo que soy. Mi amor por ti no tiene medida, y no pienso guardármelo: quiero demostrártelo en lo pequeño de cada día y en cada etapa que nos toque vivir.</p>
+
+            <p>Gracias por haberme recibido en tu vida desde hace tanto, mi amor. Ojalá nunca dudes de lo importante que eres para mí. Aquí voy a estar, hoy y siempre, para amarte sin medida, apoyarte y recordarte lo feliz que me hace compartir mi vida contigo.</p>
+
+            <p class="signoff">Te amo muchísimo,<br><strong>y te volvería a elegir una y mil veces.</strong> <span class="little-heart">♥</span></p>
+          </article>
+        </div>
+      </div>
+    </div>
+    <p class="bottom-note">Hecha para ti <span>♥</span> con todo mi cariño</p>
+  </main>
+
+  <script>
+    const scene = document.getElementById('scene');
+    const button = document.getElementById('openLetter');
+    const letter = document.getElementById('letterContent');
+
+    button.addEventListener('click', () => {
+      const isOpening = !scene.classList.contains('opened');
+      scene.classList.toggle('opened', isOpening);
+      button.setAttribute('aria-expanded', String(isOpening));
+      button.textContent = isOpening ? 'Cerrar mi cartita' : 'Abrir mi cartita';
+      if (isOpening) {
+        window.setTimeout(() => letter.scrollIntoView({ behavior: 'smooth', block: 'start' }), 180);
+      }
+    });
+  </script>
+</body>
+</html>
