@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a2a">
+  <meta name="description" content="Una sorpresa de cumpleaños para Luisito, con mucho cariño de primo a primo.">
+  <title>Feliz cumpleaños, Luisito</title>
+  <style>
+    :root {
+      --bg: #101a2a;
+      --bg-2: #17263a;
+      --panel: #1b2b40;
+      --panel-light: #23374e;
+      --text: #f4f2ec;
+      --muted: #a8b7c7;
+      --mint: #87e0c0;
+      --gold: #ffcf7a;
+      --coral: #ff8b7e;
+      --blue: #8bbcff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 75% 9%, rgba(80, 125, 166, .2), transparent 30rem),
+        radial-gradient(ellipse at 5% 85%, rgba(68, 142, 124, .12), transparent 28rem),
+        linear-gradient(140deg, #0d1726 0%, var(--bg) 52%, #16253a 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .36;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(234,244,255,.43) .7px, transparent .7px);
+      background-size: 29px 29px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+    .page { width: min(100% - 36px, 1060px); margin: auto; padding: 30px 0 64px; }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 21px;
+      border-bottom: 1px solid rgba(209,225,241,.13);
+      color: #c3d0dd;
+      font: 600 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; }
+    .brand-mark {
+      width: 25px; height: 25px; display: grid; place-items: center;
+      color: var(--bg); background: var(--mint); border-radius: 8px;
+      font: 800 14px/1 ui-monospace, monospace;
+      box-shadow: 0 0 22px rgba(135,224,192,.24);
+    }
+    .status { display: inline-flex; align-items: center; gap: 8px; color: #bed2cb; letter-spacing: .08em; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 10px var(--mint); }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+      align-items: center;
+      gap: clamp(28px, 5vw, 65px);
+      padding: clamp(48px, 9vw, 92px) 0 52px;
+    }
+    .hero-copy { position: relative; z-index: 1; }
+    .overline {
+      display: flex; align-items: center; gap: 10px;
+      margin: 0 0 19px; color: var(--mint);
+      font: 700 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    .overline::before { content: ""; width: 26px; height: 1px; background: var(--mint); }
+    h1 {
+      max-width: 600px; margin: 0; color: var(--text);
+      font-size: clamp(47px, 7.2vw, 82px); line-height: .98;
+      font-weight: 750; letter-spacing: -.067em;
+    }
+    h1 span { display: block; color: var(--gold); }
+    .subhead {
+      max-width: 480px; margin: 25px 0 0; color: #c1ced9;
+      font-size: clamp(16px, 2vw, 19px); line-height: 1.7;
+    }
+    .hero-note { margin: 27px 0 0; color: #95a7b9; font-size: 13px; line-height: 1.65; }
+    .hero-note strong { color: #e5e9e7; font-weight: 600; }
+
+    .console {
+      overflow: hidden;
+      border: 1px solid rgba(181, 204, 222, .17);
+      border-radius: 15px;
+      background: rgba(18, 31, 47, .83);
+      box-shadow: 0 25px 70px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.035);
+      transform: rotate(1deg);
+      backdrop-filter: blur(10px);
+    }
+    .console-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 13px 16px; background: rgba(255,255,255,.035);
+      border-bottom: 1px solid rgba(181,204,222,.11);
+      color: #a9bac9; font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots i { display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
+    .window-dots i:nth-child(2) { background: var(--gold); }
+    .window-dots i:nth-child(3) { background: var(--mint); }
+    .console-body { padding: 22px 20px 23px; }
+    .code-line {
+      min-height: 26px; color: #b5c5d2;
+      font: 12px/1.65 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap; overflow-wrap: anywhere;
+    }
+    .prompt { color: var(--mint); }
+    .code-key { color: var(--blue); }
+    .code-string { color: var(--gold); }
+    .code-comment { color: #879bab; }
+    .console-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(181,204,222,.11);
+      color: #9bb0bf; font: 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .07em; text-transform: uppercase;
+    }
+    .success { display: inline-flex; align-items: center; gap: 7px; color: var(--mint); }
+    .success::before { content: "✓"; font-size: 13px; }
+
+    .action-wrap { margin-top: 31px; text-align: center; }
+    .celebrate-button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      min-height: 54px; padding: 0 25px; color: #142335;
+      background: linear-gradient(105deg, #a2edd2, #d5efae 55%, #ffd58b);
+      border: 0; border-radius: 999px; cursor: pointer;
+      box-shadow: 0 10px 29px rgba(135,224,192,.17);
+      font: 750 14px/1 ui-sans-serif, system-ui, sans-serif;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .celebrate-button:hover { transform: translateY(-3px); box-shadow: 0 14px 35px rgba(135,224,192,.27); filter: saturate(1.12); }
+    .celebrate-button:focus-visible { outline: 3px solid white; outline-offset: 5px; }
+    .button-icon { font-size: 17px; }
+    .microcopy { margin: 11px 0 0; color: #93a7b6; font-size: 11px; }
+
+    .message-wrap {
+      display: grid; grid-template-rows: 0fr; opacity: 0;
+      transition: grid-template-rows .7s cubic-bezier(.2,.8,.2,1), opacity .4s ease;
+    }
+    .message-clip { min-height: 0; overflow: hidden; }
+    .message {
+      position: relative; max-width: 850px; margin: 0 auto;
+      padding: clamp(27px, 6vw, 58px);
+      color: #263548; background: #f4f0e6;
+      border: 1px solid rgba(255,255,255,.55); border-radius: 18px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.24);
+      transform: translateY(18px);
+      transition: transform .6s cubic-bezier(.2,.8,.2,1);
+    }
+    .message::before {
+      content: "// DE PRIMO A PRIMO"; display: inline-block;
+      margin-bottom: 17px; color: #52796f;
+      font: 700 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .15em;
+    }
+    .message h2 { margin: 0 0 23px; color: #21344a; font-size: clamp(27px, 4vw, 37px); line-height: 1.14; letter-spacing: -.04em; }
+    .message p { margin: 0 0 17px; color: #435366; font-size: clamp(15px, 2vw, 17px); line-height: 1.82; }
+    .message p:last-of-type { margin-bottom: 0; }
+    .signature {
+      display: flex; align-items: end; justify-content: space-between; gap: 24px;
+      margin-top: 31px; padding-top: 22px; border-top: 1px solid #d6d6c8;
+    }
+    .signature-text { color: #42586a; font-size: 14px; line-height: 1.7; }
+    .signature-text strong { display: block; color: #25374a; font-size: 17px; }
+    .signature-mark { color: #679286; font: 800 13px/1.2 ui-monospace, monospace; letter-spacing: .08em; text-align: right; }
+    .signature-mark span { display: block; margin-top: 5px; color: #98a397; font-size: 9px; font-weight: 500; }
+    .scene.opened .message-wrap { grid-template-rows: 1fr; opacity: 1; }
+    .scene.opened .message { transform: translateY(0); }
+    .scene.opened .hero { padding-bottom: 32px; }
+
+    .footer {
+      margin-top: 52px; padding-top: 19px; border-top: 1px solid rgba(209,225,241,.13);
+      display: flex; justify-content: space-between; gap: 16px;
+      color: #8295a7; font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .footer b { color: #b9c7cf; font-weight: 500; }
+
+    .confetti {
+      position: fixed; top: -14px; z-index: 5; width: 9px; height: 14px;
+      pointer-events: none; animation: fall var(--duration, 2.7s) linear forwards;
+    }
+    @keyframes fall { to { transform: translate3d(var(--drift, 0px), 105vh, 0) rotate(720deg); opacity: .12; } }
+    .sparkle {
+      position: absolute; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 18px 4px rgba(255,207,122,.28);
+      animation: glow 2.7s ease-in-out infinite alternate;
+    }
+    .sparkle.one { top: 98px; right: 14%; }
+    .sparkle.two { top: 395px; left: 2%; width: 4px; height: 4px; animation-delay: .8s; }
+    .sparkle.three { top: 280px; right: 2%; width: 4px; height: 4px; animation-delay: 1.4s; }
+    @keyframes glow { from { opacity: .25; transform: scale(.7); } to { opacity: .9; transform: scale(1.35); } }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 28px, 600px); padding-top: 20px; }
+      .hero { grid-template-columns: 1fr; gap: 30px; padding-top: 58px; }
+      .console { width: min(100%, 500px); margin-inline: auto; transform: none; }
+      .action-wrap { margin-top: 26px; }
+      .sparkle.one { top: 72px; right: 8%; }
+      .sparkle.two { top: 380px; }
+      .sparkle.three { top: 600px; }
+    }
+    @media (max-width: 430px) {
+      .topbar { font-size: 9px; }
+      .status { letter-spacing: .03em; }
+      .console-body { padding-inline: 15px; }
+      .code-line { font-size: 11px; }
+      .signature { align-items: flex-start; flex-direction: column; }
+      .signature-mark { text-align: left; }
+      .footer { flex-direction: column; gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      @page { size: A4; margin: 17mm; }
+      body { color: #222; background: #fff; }
+      body::before, .sparkle, .console, .action-wrap, .footer { display: none !important; }
+      .page { width: 100%; padding: 0; }
+      .topbar { color: #555; border-color: #ddd; }
+      .hero { display: block; padding: 18px 0 24px; }
+      .overline { color: #487368; }
+      h1 { color: #24384e; font-size: 42pt; }
+      h1 span { color: #9a6a24; }
+      .subhead, .hero-note { color: #555; }
+      .message-wrap { display: block; opacity: 1; }
+      .message-clip { overflow: visible; }
+      .message { padding: 11mm; border: 1px solid #ddd; box-shadow: none; transform: none; }
+      .message p { font-size: 11.5pt; line-height: 1.58; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="sparkle one" aria-hidden="true"></div>
+    <div class="sparkle two" aria-hidden="true"></div>
+    <div class="sparkle three" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">{ }</span><span>Un detalle hecho en familia</span></div>
+      <div class="status"><span class="status-dot" aria-hidden="true"></span><span>Celebración lista</span></div>
+    </header>
+
+    <section class="scene" id="scene">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="overline">Build especial · Día de cumpleaños</p>
+          <h1>Feliz cumple,<span>Luisito.</span></h1>
+          <p class="subhead">Hoy celebramos al ingeniero, sí… pero sobre todo al primo increíble y a la persona que me inspiró a creer en mi propio camino.</p>
+          <p class="hero-note"><strong>Un mensaje de corazón</strong>, compilado con recuerdos, orgullo y mucho cariño.</p>
+        </div>
+
+        <aside class="console" aria-label="Terminal de cumpleaños">
+          <div class="console-head">
+            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>luisito@cumpleaños: ~</span>
+            <span>01:01</span>
+          </div>
+          <div class="console-body" aria-hidden="true">
+            <div class="code-line"><span class="prompt">$</span> preparar_sorpresa --para Luisito</div>
+            <div class="code-line"><span class="code-comment">// cargando buenos deseos...</span></div>
+            <div class="code-line"><span class="code-key">familia</span> = <span class="code-string">"para toda la vida"</span></div>
+            <div class="code-line"><span class="code-key">inspiración</span> = <span class="code-string">"en marcha, siempre"</span></div>
+            <div class="code-line"><span class="code-key">cariño</span> = <span class="code-string">"sin límite"</span></div>
+            <div class="console-footer"><span>resultado</span><span class="success">100% listo para celebrar</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="action-wrap">
+        <button class="celebrate-button" id="celebrateButton" type="button" aria-expanded="false" aria-controls="birthdayMessage">
+          <span class="button-icon" aria-hidden="true">✦</span>
+          <span id="buttonLabel">Ejecutar sorpresa</span>
+          <span class="button-icon" aria-hidden="true">✦</span>
+        </button>
+        <p class="microcopy" id="microcopy">Hay un mensajito para ti detrás de este botón.</p>
+      </div>
+
+      <div class="message-wrap" id="birthdayMessage">
+        <div class="message-clip">
+          <article class="message" aria-labelledby="messageTitle">
+            <h2 id="messageTitle">Primo querido, Luisito:</h2>
+            <p>¡Feliz cumpleaños! Hoy quiero celebrar lo afortunado que soy de tenerte como primo. Para mí eres mucho más que familia: eres de esas personas que uno admira, quiere cerca y agradece tener en su vida.</p>
+            <p>Quizá no te lo digo seguido, pero tú fuiste una de las razones que me animó a estudiar lo que estudio. Verte avanzar como ingeniero de sistemas y construir tu propio camino me hizo pensar que yo también podía ir por mis metas. Tu ejemplo me inspiró más de lo que imaginas, y llevo un poquito de esa inspiración conmigo cada vez que sigo adelante.</p>
+            <p>Me da un orgullo enorme ser tu primo. Gracias por ser ese referente para mí y, al mismo tiempo, ese compañero de vida con quien comparto una historia de familia. Te quiero un montón, Luisito, y deseo que nunca te falten motivos para sentirte orgulloso de todo lo que eres y de todo lo que has logrado.</p>
+            <p>Que este nuevo año te traiga salud, alegrías, proyectos que te entusiasmen y tiempo para disfrutar de las cosas buenas que has ido construyendo. Y cuenta conmigo, siempre: para apoyarte, escucharte, celebrar tus triunfos o simplemente estar ahí. Eso hacen los primos que se sienten como hermanos.</p>
+            <p>Gracias por inspirarme y por ser parte tan importante de mi vida. Ojalá hoy recibas aunque sea un poquito de todo el cariño que tú le das a los demás. ¡Feliz cumpleaños, primo querido! Te quiero mucho y me alegra un montón poder llamarte Luisito.</p>
+            <div class="signature">
+              <div class="signature-text">Con todo mi cariño y admiración,<strong>tu primo, que está orgulloso de ti.</strong></div>
+              <div class="signature-mark">FAMILY.exe<span>no se desinstala</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer"><span><b>status:</b> primo favorito confirmado</span><span><b>hecho con:</b> admiración + cariño de familia</span></footer>
+  </main>
+
+  <script>
+    const scene = document.getElementById('scene');
+    const button = document.getElementById('celebrateButton');
+    const label = document.getElementById('buttonLabel');
+    const message = document.getElementById('birthdayMessage');
+    const microcopy = document.getElementById('microcopy');
+    const colors = ['#87e0c0', '#ffcf7a', '#ff8b7e', '#8bbcff', '#e6a9d1'];
+    let confettiTimer;
+
+    function launchConfetti() {
+      const amount = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 18 : 75;
+      for (let i = 0; i < amount; i++) {
+        const bit = document.createElement('span');
+        bit.className = 'confetti';
+        bit.setAttribute('aria-hidden', 'true');
+        bit.style.left = `${Math.random() * 100}vw`;
+        bit.style.background = colors[Math.floor(Math.random() * colors.length)];
+        bit.style.borderRadius = Math.random() > .55 ? '50%' : '2px';
+        bit.style.setProperty('--duration', `${2.1 + Math.random() * 2.3}s`);
+        bit.style.setProperty('--drift', `${Math.round(Math.random() * 190 - 95)}px`);
+        bit.style.animationDelay = `${Math.random() * .55}s`;
+        document.body.appendChild(bit);
+        bit.addEventListener('animationend', () => bit.remove(), { once: true });
+      }
+    }
+
+    button.addEventListener('click', () => {
+      const opening = !scene.classList.contains('opened');
+      scene.classList.toggle('opened', opening);
+      button.setAttribute('aria-expanded', String(opening));
+      label.textContent = opening ? 'Cerrar mensajito' : 'Ejecutar sorpresa';
+      microcopy.textContent = opening ? 'Un abrazo de primo a primo, hoy y siempre.' : 'Hay un mensajito para ti detrás de este botón.';
+      if (opening) {
+        launchConfetti();
+        confettiTimer = window.setInterval(launchConfetti, 5000);
+        window.setTimeout(() => message.scrollIntoView({ behavior: 'smooth', block: 'start' }), 230);
+      } else {
+        window.clearInterval(confettiTimer);
+      }
+    });
+  </script>
+</body>
+</html>
