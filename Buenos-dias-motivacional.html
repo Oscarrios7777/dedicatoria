@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f0e5">
+  <meta name="description" content="Un saludo cálido para empezar el día con ánimo, calma y una frase que te recuerde todo lo que puedes lograr.">
+  <title>Buenos días — un comienzo bonito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f0e5;
+      --paper-deep: #efe3d2;
+      --ink: #273a36;
+      --muted: #697771;
+      --terracotta: #c66d4f;
+      --terracotta-dark: #a95139;
+      --gold: #eab85e;
+      --sage: #9ba98f;
+      --line: rgba(39, 58, 54, .14);
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "DM Sans", "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-width: 320px; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.84), transparent 33rem),
+        radial-gradient(ellipse at 94% 82%, rgba(231,193,133,.18), transparent 30rem),
+        var(--paper);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font: inherit; }
+    .page-shell { width: min(1180px, calc(100% - 72px)); margin-inline: auto; }
+    .topbar {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      gap: 20px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
+    .brand-mark { width: 39px; height: 39px; color: var(--terracotta); flex: 0 0 auto; }
+    .brand-name { font-size: .9rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .top-note { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: .84rem; }
+    .top-note svg { width: 17px; color: var(--terracotta); }
+    main { padding: 64px 0 30px; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(330px, .96fr);
+      align-items: center;
+      gap: clamp(34px, 6vw, 86px);
+    }
+    .hero-copy { position: relative; z-index: 1; padding: 10px 0 30px; }
+    .date-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(198,109,79,.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.38);
+      color: var(--terracotta-dark);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .095em;
+      text-transform: uppercase;
+    }
+    .date-label svg { width: 15px; height: 15px; }
+    h1 {
+      max-width: 680px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 7vw, 6.8rem);
+      font-weight: 600;
+      letter-spacing: -.065em;
+      line-height: .98;
+    }
+    h1 .warm { color: var(--terracotta); font-style: italic; font-weight: 500; }
+    .intro {
+      max-width: 475px;
+      margin: 27px 0 27px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.3vw, 1.12rem);
+      line-height: 1.8;
+    }
+    .quote-card {
+      position: relative;
+      max-width: 540px;
+      padding: 22px 23px 19px;
+      border: 1px solid rgba(39,58,54,.09);
+      border-radius: 19px;
+      background: rgba(255,255,255,.68);
+      box-shadow: 0 16px 42px rgba(82,64,43,.07);
+    }
+    .quote-mark { display: block; height: 21px; color: var(--gold); font: 700 2.3rem/1 var(--serif); }
+    .quote-text { min-height: 54px; margin: 4px 0 14px; font: 500 clamp(1.12rem, 1.8vw, 1.42rem)/1.42 var(--serif); }
+    .quote-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .button {
+      display: inline-flex;
+      min-height: 43px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 15px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button:focus-visible { outline: 3px solid rgba(198,109,79,.46); outline-offset: 3px; }
+    .button-primary { color: white; background: var(--terracotta); box-shadow: 0 7px 16px rgba(166,78,54,.18); }
+    .button-primary:hover { background: var(--terracotta-dark); }
+    .button-soft { color: var(--ink); background: #f4eee5; border-color: rgba(39,58,54,.09); }
+    .button svg { width: 16px; height: 16px; }
+    .illustration-wrap { position: relative; min-height: 510px; display: grid; place-items: center; }
+    .sun-art {
+      position: relative;
+      width: min(100%, 492px);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 47% 47% 28px 28px / 38% 38% 28px 28px;
+      background: linear-gradient(154deg, #f9dfb0 0%, #f4c990 54%, #e6a982 100%);
+      box-shadow: 0 28px 66px rgba(135,89,55,.15);
+      aspect-ratio: 1 / 1.04;
+      isolation: isolate;
+    }
+    .sun-art::before, .sun-art::after {
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      content: "";
+    }
+    .sun-art::before { width: 390px; height: 390px; top: 11%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(255,249,226,.65), rgba(255,247,222,0) 69%); }
+    .sun-art::after { width: 210px; height: 210px; top: 21%; left: 50%; transform: translateX(-50%); border: 1px solid rgba(255,255,255,.45); }
+    .sun-disc { position: absolute; top: 23%; left: 50%; width: 155px; height: 155px; transform: translateX(-50%); border-radius: 50%; background: linear-gradient(145deg, #ffedbb, #edb957); box-shadow: 0 0 60px rgba(255,246,206,.58); }
+    .hill { position: absolute; right: -12%; bottom: -1%; left: -12%; height: 43%; border-radius: 52% 52% 0 0 / 35% 35% 0 0; }
+    .hill-back { bottom: 14%; left: -22%; height: 34%; background: #bf806b; transform: rotate(-8deg); opacity: .9; }
+    .hill-front { height: 35%; background: #799181; transform: rotate(4deg); }
+    .hill-front::after { position: absolute; inset: 28% -4% 0 43%; border-radius: 58% 0 0 0; background: #667f73; content: ""; }
+    .art-caption {
+      position: absolute;
+      z-index: 2;
+      right: 23px;
+      bottom: 22px;
+      left: 23px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      color: white;
+      text-shadow: 0 2px 15px rgba(32,52,47,.35);
+    }
+    .art-caption strong { max-width: 210px; font: 500 1.65rem/1.15 var(--serif); }
+    .art-caption span { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .sparkle { position: absolute; z-index: 2; width: 25px; color: #fff8df; filter: drop-shadow(0 1px 6px rgba(153,103,55,.25)); animation: drift 4s ease-in-out infinite; }
+    .sparkle-one { top: 19%; left: 17%; }
+    .sparkle-two { top: 43%; right: 16%; width: 18px; animation-delay: -1.6s; }
+    .sparkle-three { top: 58%; left: 15%; width: 15px; animation-delay: -2.7s; }
+    .little-note {
+      position: absolute;
+      z-index: 3;
+      right: -6px;
+      top: 17%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 14px;
+      border: 1px solid rgba(39,58,54,.07);
+      border-radius: 999px;
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 10px 28px rgba(82,64,43,.08);
+      color: var(--ink);
+      font-size: .75rem;
+      font-weight: 700;
+      transform: rotate(4deg);
+    }
+    .little-note svg { width: 17px; color: var(--terracotta); }
+    .gentle-reminder {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 35px;
+      padding: 22px 0 14px;
+      border-top: 1px solid var(--line);
+    }
+    .gentle-reminder p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .gentle-reminder strong { color: var(--ink); font-weight: 700; }
+    .ritual { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ritual span { padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.47); color: #596b63; font-size: .74rem; font-weight: 700; }
+    .toast {
+      position: fixed;
+      z-index: 5;
+      right: 22px;
+      bottom: 22px;
+      padding: 12px 17px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: white;
+      box-shadow: 0 12px 30px rgba(24,42,37,.2);
+      font-size: .86rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .toast.is-visible { opacity: 1; transform: translateY(0); }
+    @keyframes drift { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-8px) rotate(8deg); } }
+    @media (max-width: 880px) {
+      .page-shell { width: min(100% - 48px, 680px); }
+      main { padding-top: 48px; }
+      .hero { grid-template-columns: 1fr; gap: 18px; }
+      .hero-copy { padding-bottom: 0; }
+      .illustration-wrap { min-height: auto; padding: 20px 14px 10px; }
+      .sun-art { width: min(100%, 450px); }
+      .little-note { right: 0; top: 11%; }
+      .gentle-reminder { margin-top: 25px; }
+    }
+    @media (max-width: 560px) {
+      .page-shell { width: calc(100% - 36px); }
+      .topbar { min-height: 76px; }
+      .brand-mark { width: 33px; height: 33px; }
+      .brand-name { font-size: .77rem; }
+      .top-note { max-width: 112px; font-size: .69rem; line-height: 1.4; }
+      main { padding-top: 35px; }
+      .date-label { margin-bottom: 20px; font-size: .67rem; }
+      h1 { font-size: clamp(3.2rem, 15vw, 4.75rem); }
+      .intro { margin-top: 21px; margin-bottom: 22px; font-size: .98rem; }
+      .quote-card { padding: 18px 17px 16px; }
+      .quote-text { min-height: 72px; }
+      .button { min-height: 42px; padding-inline: 13px; font-size: .78rem; }
+      .illustration-wrap { padding: 23px 4px 4px; }
+      .sun-art { border-radius: 46% 46% 22px 22px / 34% 34% 22px 22px; }
+      .sun-disc { width: 31%; height: auto; aspect-ratio: 1; }
+      .art-caption { right: 16px; bottom: 16px; left: 16px; }
+      .art-caption strong { font-size: 1.35rem; }
+      .art-caption span { font-size: .58rem; }
+      .little-note { right: -3px; padding: 9px 11px; font-size: .68rem; }
+      .gentle-reminder { align-items: flex-start; flex-direction: column; gap: 13px; padding-top: 17px; }
+      .ritual span { font-size: .7rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Sol de hoy, ir al inicio">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 4v7m0 26v7M4 24h7m26 0h7M9.86 9.86l4.95 4.95m18.38 18.38 4.95 4.95m0-28.28-4.95 4.95M14.81 33.19l-4.95 4.95" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M14 29.5c2.3-2.8 5.6-4.2 10-4.2s7.7 1.4 10 4.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Sol de hoy</span>
+      </a>
+      <div class="top-note">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36-6.36-1.42 1.42M7.06 16.94l-1.42 1.42m12.72 0-1.42-1.42M7.06 7.06 5.64 5.64" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg>
+        <span>Un comienzo nuevo, a tu ritmo</span>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <div class="date-label">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M8 3.5v3M16 3.5v3M4 9.5h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <time id="today-label">Un día nuevo</time>
+          </div>
+          <h1 id="page-title">Buenos días,<br><span class="warm">que hoy te trate bonito.</span></h1>
+          <p class="intro">Respira profundo, suelta la prisa y date crédito por todo lo que ya has superado. No hace falta tener el día resuelto: basta con empezar.</p>
+
+          <div class="quote-card" aria-label="Frase para empezar el día">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text" id="quote-text" aria-live="polite">Cada paso pequeño también te acerca a una vida que te hace bien.</p>
+            <div class="quote-controls">
+              <button class="button button-primary" id="new-quote" type="button">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.7 9A7 7 0 0 1 18 6.5L20 12M4 12l2 5.5A7 7 0 0 0 18.3 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Otra frase bonita
+              </button>
+              <button class="button button-soft" id="share-greeting" type="button">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15V3m0 0L7.5 7.5M12 3l4.5 4.5M5 13v5.5A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Compartir saludo
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="illustration-wrap" aria-label="Ilustración decorativa de un amanecer entre colinas">
+          <div class="little-note">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z" fill="currentColor"/></svg>
+            Hoy también puedes
+          </div>
+          <div class="sun-art" role="img" aria-label="El sol dorado aparece sobre colinas verdes">
+            <div class="sun-disc"></div>
+            <svg class="sparkle sparkle-one" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8 14.6 9.4 22.2 12l-7.6 2.6L12 22.2l-2.6-7.6L1.8 12l7.6-2.6L12 1.8Z"/></svg>
+            <svg class="sparkle sparkle-two" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8 14.6 9.4 22.2 12l-7.6 2.6L12 22.2l-2.6-7.6L1.8 12l7.6-2.6L12 1.8Z"/></svg>
+            <svg class="sparkle sparkle-three" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.8 14.6 9.4 22.2 12l-7.6 2.6L12 22.2l-2.6-7.6L1.8 12l7.6-2.6L12 1.8Z"/></svg>
+            <div class="hill hill-back"></div>
+            <div class="hill hill-front"></div>
+            <div class="art-caption"><strong>Lo bonito también empieza despacio.</strong><span>Un día a la vez</span></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="gentle-reminder" aria-label="Recordatorio amable para hoy">
+        <p><strong>Un recordatorio amable:</strong> no tienes que poder con todo, solo dar el siguiente paso.</p>
+        <div class="ritual" aria-label="Pequeños pasos">
+          <span>Respira</span><span>Confía</span><span>Avanza</span>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const quotes = [
+        "Cada paso pequeño también te acerca a una vida que te hace bien.",
+        "No tienes que florecer de golpe: hasta la luz de la mañana llega poco a poco.",
+        "Confía en ti. Has llegado hasta aquí incluso en los días que parecían cuesta arriba.",
+        "Hoy es una página nueva: escribe algo bonito, aunque empiece con una sola línea.",
+        "Tu ritmo también es un buen ritmo. Sigue avanzando con paciencia y cariño.",
+        "A veces, ser valiente es simplemente volver a intentarlo después de descansar.",
+        "Que tus ganas sean más grandes que tus dudas, y tu calma más fuerte que la prisa."
+      ];
+      const quoteText = document.getElementById("quote-text");
+      const todayLabel = document.getElementById("today-label");
+      const toast = document.getElementById("toast");
+      let lastQuote = 0;
+      let toastTimeout;
+
+      todayLabel.textContent = new Intl.DateTimeFormat("es", {
+        weekday: "long", day: "numeric", month: "long", year: "numeric"
+      }).format(new Date());
+
+      document.getElementById("new-quote").addEventListener("click", () => {
+        let nextQuote = Math.floor(Math.random() * quotes.length);
+        if (quotes.length > 1 && nextQuote === lastQuote) nextQuote = (nextQuote + 1) % quotes.length;
+        lastQuote = nextQuote;
+        quoteText.animate(
+          [{ opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(5px)" }, { opacity: 1, transform: "translateY(0)" }],
+          { duration: 260, easing: "ease-out" }
+        );
+        quoteText.textContent = quotes[nextQuote];
+      });
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("is-visible");
+        window.clearTimeout(toastTimeout);
+        toastTimeout = window.setTimeout(() => toast.classList.remove("is-visible"), 2600);
+      }
+
+      document.getElementById("share-greeting").addEventListener("click", async () => {
+        const text = `¡Buenos días! ${quoteText.textContent}`;
+        const shareData = { title: "Buenos días — un comienzo bonito", text, url: window.location.href };
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(`${text} ${window.location.href}`);
+            showToast("Saludo copiado. ¡Compártelo con cariño!");
+          } else {
+            const temporary = document.createElement("textarea");
+            temporary.value = `${text} ${window.location.href}`;
+            temporary.setAttribute("readonly", "");
+            temporary.style.position = "fixed";
+            temporary.style.opacity = "0";
+            document.body.appendChild(temporary);
+            temporary.select();
+            document.execCommand("copy");
+            temporary.remove();
+            showToast("Saludo copiado. ¡Compártelo con cariño!");
+          }
+        } catch (error) {
+          if (error.name !== "AbortError") showToast("No se pudo compartir ahora. Puedes copiar la frase a mano.");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
