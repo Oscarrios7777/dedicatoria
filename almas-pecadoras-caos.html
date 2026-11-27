@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#100b16" />
+    <meta name="description" content="Una invitación lunar a las almas pecadoras: una noche, un pequeño ritual y un poquito de caos." />
+    <title>Buenas noches, almas pecadoras — Santuario del desorden</title>
+    <style>
+:root{--ink:#100b16;--ink-2:#17101f;--ink-3:#211528;--plum:#38213d;--wine:#84394c;--rose:#d06a82;--rose-hot:#ef8290;--ivory:#f1e6dc;--muted:#aa9ba8;--line:rgba(239,217,222,.16);--gold:#d3b783;--serif:'Cormorant Garamond',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;--content:1160px;--chaos:8;scroll-behavior:smooth;color-scheme:dark}
+*{box-sizing:border-box}
+html{background:var(--ink);scroll-padding-top:28px}
+body{margin:0;background:var(--ink);color:var(--ivory);font-family:var(--sans);font-size:14px;line-height:1.6;overflow-x:hidden}
+button,input{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{color:inherit}
+::selection{background:rgba(208,106,130,.42);color:#fff8f2}
+.skip-link{position:fixed;z-index:30;top:12px;left:12px;transform:translateY(-160%);padding:10px 14px;background:var(--ivory);color:var(--ink);border-radius:4px}.skip-link:focus{transform:translateY(0)}
+.page-shell{max-width:1600px;margin:0 auto;position:relative;overflow:hidden}.grain{position:fixed;z-index:15;inset:-50%;width:200%;height:200%;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E")}
+.site-header{height:96px;padding:0 max(5.5vw,34px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(239,217,222,.09);position:relative;z-index:5;background:#100b16}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:38px;height:38px;color:var(--rose);display:grid;place-items:center}.brand-mark svg{width:100%;height:100%}.brand-copy{display:grid;gap:1px}.brand-name{font-family:var(--serif);font-size:18px;letter-spacing:.03em}.brand-caption{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#8d7e8d}
+.main-nav{display:flex;gap:38px;margin-left:52px}.main-nav a{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#c2b4bf;transition:color .2s}.main-nav a:hover,.main-nav a:focus-visible{color:var(--rose-hot)}
+.sound-toggle{background:transparent;border:1px solid var(--line);border-radius:99px;padding:8px 13px;display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.15em;color:#bbaeb9;cursor:pointer;transition:border-color .2s,color .2s}.sound-toggle:hover,.sound-toggle[aria-pressed="true"]{border-color:var(--rose);color:var(--ivory)}.sound-dot{width:5px;height:5px;border-radius:50%;background:#716777}.sound-toggle[aria-pressed="true"] .sound-dot{background:var(--rose-hot);box-shadow:0 0 11px var(--rose-hot)}
+.hero{position:relative;min-height:710px;height:min(78vw,800px);max-height:820px;display:flex;align-items:center;padding:72px max(11vw,7.5%);overflow:hidden;background:#17101f}.hero-image,.hero-vignette,.hero-sparkles{position:absolute;inset:0}.hero-image{background-image:radial-gradient(circle at 77% 29%,rgba(246,230,207,.96) 0 5.5%,rgba(220,188,206,.24) 5.9%,transparent 10%),radial-gradient(1px 1px at 14% 19%,#f5e6ef 98%,transparent),radial-gradient(1px 1px at 29% 68%,#eacbdc 98%,transparent),radial-gradient(1px 1px at 53% 24%,#fff 98%,transparent),radial-gradient(1px 1px at 66% 76%,#efd7e5 98%,transparent),radial-gradient(1px 1px at 91% 62%,#fff 98%,transparent),radial-gradient(ellipse at 75% 31%,rgba(118,48,143,.72),transparent 30%),radial-gradient(ellipse at 44% 48%,rgba(72,31,94,.74),transparent 53%),linear-gradient(130deg,#12101c 0%,#28112f 54%,#130d1c 100%);background-size:cover;background-position:center 46%;opacity:.77;transform:scale(1.015);transition:filter 1.1s,transform 2s}.hero-vignette{background:linear-gradient(90deg,rgba(13,8,18,.94) 0%,rgba(15,9,20,.78) 35%,rgba(14,8,18,.27) 73%,rgba(14,8,18,.34) 100%),linear-gradient(0deg,#100b16 0%,transparent 28%,rgba(10,6,14,.06) 75%,rgba(10,6,14,.22) 100%)}.hero-sparkles{pointer-events:none;overflow:hidden}.hero-copy{position:relative;z-index:2;max-width:720px;margin-top:-15px}.eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#c9aeb9;margin:0 0 18px}.hero .eyebrow{display:flex;align-items:center;gap:12px}.eyebrow-line{width:33px;height:1px;background:var(--rose)}
+h1,h2,p{margin-top:0}h1{font-family:var(--serif);font-weight:400;font-size:clamp(62px,8.3vw,120px);line-height:.83;letter-spacing:-.055em;margin:0 0 25px;color:#f5ebe5}h1 em,h2 em{font-weight:400;color:#df9aaa}h1 em{letter-spacing:-.055em}.hero-subtitle{font-family:var(--serif);font-size:clamp(22px,2.4vw,31px);margin:0 0 10px;color:#f1e7e0}.blink{color:var(--rose-hot);animation:blink 1.2s steps(2,start) infinite}.hero-note{font-size:11px;color:#b8aab5;letter-spacing:.035em;margin:0}.hero-note span{color:#8f8291}
+.hero-actions{display:flex;align-items:center;gap:27px;margin-top:34px}.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 19px;border:1px solid transparent;cursor:pointer;font-size:10px;letter-spacing:.09em;text-transform:uppercase;transition:transform .22s,background .22s,border-color .22s,box-shadow .22s}.button:hover{transform:translateY(-2px)}.button:focus-visible,.ritual-card:focus-visible,.oracle-button:focus-visible,.copy-button:focus-visible,.sound-toggle:focus-visible,.reset-button:focus-visible{outline:2px solid var(--rose-hot);outline-offset:4px}.button-primary{color:#1b0f18;background:var(--rose);box-shadow:0 7px 28px rgba(164,57,83,.15)}.button-primary:hover{background:#e88296;box-shadow:0 10px 34px rgba(164,57,83,.28)}.button-star{font-size:15px}.button-arrow{font-size:15px;margin-left:7px}.text-link{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#d6c4cc}.text-link span{color:var(--rose);padding-left:8px}.text-link:hover{color:#fff}
+.hero-side-note{position:absolute;right:5.3%;top:33%;z-index:2;display:flex;align-items:center;gap:12px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:#d4c2d0}.hero-side-note i{height:34px;width:1px;background:rgba(241,230,220,.5)}.moon-stamp{position:absolute;right:12%;bottom:19%;z-index:2;border:1px solid rgba(241,230,220,.32);width:82px;height:82px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#f1e6dc;transform:rotate(12deg);background:rgba(22,13,24,.24);backdrop-filter:blur(2px)}.moon-stamp span{font-size:7px;line-height:1.4;letter-spacing:.18em}.moon-stamp b{position:absolute;right:-6px;top:-9px;font-size:23px;color:var(--rose-hot);font-weight:400}.hero-bottom{position:absolute;z-index:3;left:max(11vw,7.5%);right:max(11vw,7.5%);bottom:39px;display:flex;justify-content:space-between;align-items:center}.scroll-hint{display:flex;align-items:center;gap:10px;text-transform:uppercase;font-size:8px;letter-spacing:.19em;color:#c2b4bf}.scroll-line{height:1px;width:36px;background:#ac8b9d}.mood-readout{display:flex;align-items:center;gap:9px;font-size:8px;letter-spacing:.14em;color:#dbc9d0}.mood-readout b{color:#f3e6df;font-weight:500}.mood-divider{color:#806d7c}.pulse-dot,.console-pip{width:6px;height:6px;border-radius:50%;background:#9d7f98}.pulse-dot{box-shadow:0 0 0 3px rgba(208,106,130,.11)}.chaos-mode .pulse-dot{background:var(--rose-hot);box-shadow:0 0 0 4px rgba(239,130,144,.13),0 0 13px var(--rose-hot);animation:pulse 1.25s infinite}
+.section-wrap{max-width:var(--content);margin:0 auto;padding-left:38px;padding-right:38px}.ritual-section{padding-top:115px;padding-bottom:126px}.section-heading{border-bottom:1px solid var(--line);padding-bottom:34px}.section-index{font-size:9px;letter-spacing:.19em;text-transform:uppercase;color:#e1b1be;margin:0}.section-index span{color:#766778;padding:0 6px}.heading-main{display:flex;justify-content:space-between;align-items:flex-end;gap:50px;margin-top:23px}.heading-main .eyebrow{margin-bottom:8px}.heading-main h2{font-family:var(--serif);font-weight:400;font-size:clamp(43px,5.8vw,72px);line-height:.94;letter-spacing:-.035em;margin:0;color:#f1e6dc}.heading-main h2 em{color:#b98ca0}.heading-aside{color:#998994;font-size:11px;line-height:1.8;margin:0 3px 5px 0;min-width:172px}.ritual-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:80px;padding-top:45px}.ritual-intro{padding:17px 0 0 5px}.orbital-mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(211,183,131,.3);border-radius:50%;font-size:21px;color:var(--gold);margin-bottom:20px;box-shadow:0 0 22px rgba(211,183,131,.05)}.ritual-intro p{font-family:var(--serif);font-size:24px;line-height:1.23;color:#e3d7d4;max-width:275px;margin-bottom:24px}.fine-print{font-size:8px;text-transform:uppercase;letter-spacing:.16em;color:#927d8a}.ritual-list{border-top:1px solid var(--line)}.ritual-card{width:100%;display:grid;grid-template-columns:40px 36px 1fr 20px;gap:15px;align-items:center;text-align:left;padding:18px 4px;background:transparent;border:0;border-bottom:1px solid var(--line);cursor:pointer;transition:background .2s,padding .2s}.ritual-card:hover{background:linear-gradient(90deg,rgba(208,106,130,.07),transparent);padding-left:10px}.ritual-number{font-family:var(--serif);font-size:15px;color:#8a7081}.ritual-icon{font-size:22px;text-align:center;color:var(--rose);transition:transform .35s}.ritual-card:hover .ritual-icon{transform:rotate(35deg) scale(1.12)}.moon-icon{color:var(--gold)}.ritual-card-copy{display:grid;gap:3px}.ritual-card-copy strong{font-family:var(--serif);font-size:20px;font-weight:500;color:#f0e6df}.ritual-card-copy small{font-size:10px;color:#968591}.ritual-plus{font-size:17px;color:#8d7886;text-align:center;transition:color .2s,transform .2s}.ritual-card:hover .ritual-plus{color:var(--rose-hot);transform:rotate(90deg)}
+.chaos-console{position:relative;margin-top:65px;padding:18px 0 0;border-top:1px solid rgba(239,217,222,.22)}.console-label{display:flex;align-items:center;gap:9px;color:#a3929e;font-size:8px;letter-spacing:.18em}.console-pip{width:5px;height:5px;background:var(--rose)}.meter-track{position:relative;height:3px;margin-top:20px;background:#2b202d;border-radius:3px;overflow:hidden}.meter-fill{display:block;height:100%;width:calc(var(--chaos)*1%);background:linear-gradient(90deg,#7e405d,#e77989);box-shadow:0 0 14px rgba(231,121,137,.6);transition:width .9s cubic-bezier(.2,.8,.2,1)}.meter-tick{position:absolute;left:70%;top:-2px;height:7px;width:1px;background:rgba(241,230,220,.2)}.console-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:#978793;font-size:10px}.console-bottom b{font-family:var(--serif);font-size:22px;font-weight:400;color:#eadde0}.console-bottom small{font-size:9px;color:#796c79}.reset-button{position:absolute;right:0;top:15px;background:transparent;border:0;color:#a6909f;font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:4px}.reset-button:hover{color:var(--rose-hot)}.reset-button span{font-size:14px;padding-left:5px}
+.oracle-section{position:relative;overflow:hidden;background:#221526}.oracle-backdrop{position:absolute;inset:0;background:radial-gradient(ellipse at 72% 47%,rgba(115,47,82,.31),transparent 49%),linear-gradient(115deg,rgba(17,11,23,.2),rgba(53,28,48,.23));pointer-events:none}.oracle-inner{position:relative;padding-top:66px;padding-bottom:71px}.oracle-label{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(239,217,222,.15);padding-bottom:17px}.oracle-coordinates{font-size:8px;letter-spacing:.15em;color:#958394}.oracle-content{display:grid;grid-template-columns:120px 1fr 98px;gap:30px;align-items:center;padding:39px 0 10px}.quote-mark{font-family:var(--serif);font-size:130px;line-height:.7;color:rgba(208,106,130,.38);align-self:start}.oracle-copy{max-width:680px}.oracle-copy .eyebrow{margin-bottom:12px}.oracle-copy h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.3vw,55px);line-height:1.08;letter-spacing:-.02em;color:#f1e6dc;margin:0 0 17px;transition:opacity .22s,transform .22s}.oracle-copy h2.is-changing{opacity:.2;transform:translateY(6px)}.oracle-attribution{font-size:10px;letter-spacing:.04em;color:#a994a4;margin:0}.oracle-button{width:82px;height:82px;border-radius:50%;background:transparent;border:1px solid rgba(239,217,222,.25);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;cursor:pointer;color:#e7d6dd;transition:background .25s,border-color .25s,transform .25s}.oracle-button:hover{background:rgba(208,106,130,.16);border-color:var(--rose);transform:rotate(15deg)}.oracle-button span{color:var(--rose-hot);font-size:17px;line-height:1}.oracle-button small{font-size:7px;letter-spacing:.12em;line-height:1.25}.oracle-button b{font-size:11px;font-weight:400;color:#ba9dac;line-height:1}
+.dedication-section{padding-top:112px;padding-bottom:120px}.dedication-heading{padding-bottom:33px}.dedication-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding-top:40px}.dedication-form label{display:block;font-family:var(--serif);font-size:24px;color:#eaddd9;margin-bottom:17px}.input-row{display:flex;gap:10px;align-items:stretch}.input-row input{min-width:0;flex:1;background:#19121d;border:1px solid rgba(239,217,222,.2);border-radius:0;padding:0 14px;height:48px;color:var(--ivory);font-size:11px;outline:none;transition:border-color .2s}.input-row input::placeholder{color:#766977}.input-row input:focus{border-color:#bd7187}.button-secondary{min-width:max-content;background:#322039;border-color:#594050;color:#eddde1}.button-secondary:hover{background:#4b2b45;border-color:#a0647a}.form-hint{font-size:9px;color:#897b89;margin:14px 0}.form-hint span{color:var(--gold);padding-right:5px}.dedication-card{position:relative;padding:20px 22px 15px;border:1px solid rgba(211,183,131,.25);background:linear-gradient(135deg,rgba(211,183,131,.06),rgba(77,37,59,.15));min-height:173px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 45px rgba(0,0,0,.1)}.dedication-card:before,.dedication-card:after{content:'';position:absolute;width:9px;height:9px;border:1px solid var(--gold);border-radius:50%;opacity:.55}.dedication-card:before{top:-5px;left:17px}.dedication-card:after{bottom:-5px;right:17px}.card-topline,.card-bottom{display:flex;align-items:center;justify-content:space-between}.card-topline{font-size:7px;letter-spacing:.18em;color:#a9959c}.card-moon{font-size:16px;color:var(--gold)}.dedication-result{font-family:var(--serif);font-size:21px;line-height:1.2;color:#e8dad9;margin:12px 0 15px;max-width:440px}.card-bottom{border-top:1px solid rgba(211,183,131,.16);padding-top:11px;font-size:7px;letter-spacing:.1em;color:#958391}.copy-button{border:0;background:transparent;color:#dcb4bd;font-size:8px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:3px}.copy-button:hover{color:#fff}.copy-button span{font-size:11px;padding-left:4px}
+.site-footer{border-top:1px solid rgba(239,217,222,.12);min-height:92px;padding:22px max(5.5vw,34px);display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-brand{font-family:var(--serif);font-size:17px;color:#e9dcde}.footer-brand span{color:var(--rose);padding-right:7px}.site-footer p{color:#877987;font-size:9px;margin:0}.back-top{font-size:8px;letter-spacing:.16em;color:#a897a5}.back-top span{padding-left:6px;color:var(--rose)}.back-top:hover{color:#fff}
+.toast{position:fixed;z-index:20;left:50%;bottom:26px;transform:translate(-50%,18px);padding:11px 17px;border:1px solid rgba(208,106,130,.44);background:rgba(24,15,27,.94);box-shadow:0 8px 32px rgba(0,0,0,.27);color:#f0dfe2;font-size:10px;letter-spacing:.05em;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;backdrop-filter:blur(12px);white-space:nowrap}.toast.is-visible{opacity:1;transform:translate(-50%,0)}.floating-spark{position:absolute;z-index:1;pointer-events:none;color:#ed91a0;text-shadow:0 0 15px rgba(239,130,144,.65);animation:spark-rise 1.65s ease-out forwards;font-size:var(--size,15px)}.chaos-mode .hero-image{filter:saturate(1.22) hue-rotate(-8deg);transform:scale(1.045)}.chaos-mode .hero-vignette{background:linear-gradient(90deg,rgba(13,8,18,.92) 0%,rgba(15,9,20,.73) 36%,rgba(14,8,18,.24) 73%,rgba(14,8,18,.32) 100%),linear-gradient(0deg,#100b16 0%,transparent 28%,rgba(10,6,14,.06) 75%,rgba(10,6,14,.22) 100%)}.chaos-mode .brand-mark{color:var(--rose-hot)}.ritual-card.is-lit .ritual-icon{color:#f2b3be;text-shadow:0 0 18px rgba(239,130,144,.5)}.ritual-card.is-lit{background:linear-gradient(90deg,rgba(208,106,130,.09),transparent)}
+@keyframes blink{to{visibility:hidden}}@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(239,130,144,.03),0 0 17px var(--rose-hot)}}@keyframes spark-rise{0%{opacity:0;transform:translate(-50%,10px) scale(.5) rotate(0)}18%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--drift,10px)),-90px) scale(1.25) rotate(80deg)}}
+@media(min-width:1400px){.hero{padding-left:calc((100% - var(--content))/2);padding-right:calc((100% - var(--content))/2)}.hero-bottom{left:calc((100% - var(--content))/2);right:calc((100% - var(--content))/2)}}
+@media(max-width:760px){.site-header{height:78px;padding:0 22px}.brand-caption{font-size:7px}.brand-name{font-size:16px}.brand-mark{width:33px;height:33px}.main-nav{display:none}.sound-toggle{margin-left:auto}.hero{min-height:690px;height:calc(91svh - 78px);max-height:780px;padding:65px 8vw 100px;align-items:center}.hero-image{background-position:58% center;opacity:.67}.hero-vignette{background:linear-gradient(90deg,rgba(13,8,18,.87),rgba(15,9,20,.59) 63%,rgba(14,8,18,.27)),linear-gradient(0deg,#100b16 0%,transparent 27%,rgba(10,6,14,.07) 84%,rgba(10,6,14,.18))}.hero-copy{margin-top:-23px}.hero h1{font-size:clamp(59px,14.2vw,91px)}.hero-note{max-width:290px;line-height:1.8}.hero-note span{display:block}.hero-side-note{right:4%;top:27%;font-size:7px}.moon-stamp{right:12%;bottom:20%;width:69px;height:69px}.hero-bottom{left:8vw;right:8vw;bottom:25px}.mood-readout{font-size:7px;gap:6px}.scroll-hint{font-size:7px}.section-wrap{padding-left:25px;padding-right:25px}.ritual-section,.dedication-section{padding-top:82px;padding-bottom:88px}.heading-main{gap:25px}.heading-main h2{font-size:clamp(42px,9vw,61px)}.heading-aside{font-size:10px;min-width:130px}.ritual-layout{grid-template-columns:1fr;gap:25px;padding-top:29px}.ritual-intro{display:grid;grid-template-columns:42px 1fr;column-gap:16px;align-items:center;padding:0}.orbital-mark{grid-row:span 2;margin:0}.ritual-intro p{font-size:21px;max-width:410px;margin:0}.fine-print{grid-column:2;margin-top:6px}.ritual-card{grid-template-columns:27px 31px 1fr 17px;gap:11px;padding:16px 1px}.ritual-card-copy strong{font-size:19px}.chaos-console{margin-top:49px}.oracle-inner{padding-top:48px;padding-bottom:52px}.oracle-content{grid-template-columns:54px 1fr 63px;gap:12px;padding-top:33px}.quote-mark{font-size:90px}.oracle-copy h2{font-size:clamp(31px,6.6vw,45px)}.oracle-button{width:61px;height:61px}.oracle-button small{font-size:6px}.oracle-coordinates{font-size:7px}.dedication-layout{grid-template-columns:1fr;gap:25px;padding-top:31px}.dedication-form label{font-size:22px}.site-footer{padding:20px 25px;flex-wrap:wrap}.site-footer p{order:3;width:100%;text-align:center}.back-top{margin-left:auto}}
+@media(max-width:470px){.site-header{padding:0 17px}.brand{gap:8px}.brand-name{font-size:14px}.brand-caption{letter-spacing:.12em}.sound-toggle{padding:7px 9px;font-size:8px}.hero{padding-left:7vw;padding-right:7vw;min-height:650px;height:calc(92svh - 78px)}.hero h1{font-size:clamp(55px,14vw,69px)}.hero .eyebrow{font-size:8px;letter-spacing:.14em}.hero-subtitle{font-size:24px;max-width:300px}.hero-side-note{display:none}.moon-stamp{right:9%;bottom:20%;width:59px;height:59px}.moon-stamp span{font-size:6px}.hero-bottom{left:7vw;right:7vw;bottom:20px}.scroll-hint{gap:6px;letter-spacing:.12em}.scroll-line{width:19px}.mood-readout{letter-spacing:.08em}.section-wrap{padding-left:19px;padding-right:19px}.section-heading{padding-bottom:25px}.heading-main{display:block;margin-top:19px}.heading-main h2{font-size:47px}.heading-aside{margin-top:17px;min-width:0}.ritual-section,.dedication-section{padding-top:71px;padding-bottom:74px}.ritual-intro p{font-size:19px}.ritual-card{grid-template-columns:22px 27px 1fr 15px;gap:8px}.ritual-number{font-size:13px}.ritual-icon{font-size:19px}.ritual-card-copy strong{font-size:17px}.ritual-card-copy small{font-size:9px}.reset-button{font-size:8px}.oracle-inner{padding-top:40px;padding-bottom:43px}.oracle-label{align-items:flex-start;gap:15px}.oracle-coordinates{max-width:115px;text-align:right;line-height:1.5}.oracle-content{grid-template-columns:31px 1fr 50px;gap:8px;padding-top:29px}.quote-mark{font-size:67px}.oracle-copy h2{font-size:31px}.oracle-copy .eyebrow{font-size:8px}.oracle-attribution{font-size:9px}.oracle-button{width:49px;height:49px}.oracle-button span{font-size:14px}.oracle-button small{font-size:5px}.input-row{flex-direction:column}.input-row input{flex:auto;width:100%;height:46px}.button-secondary{min-height:46px}.dedication-card{padding:16px 15px 13px;min-height:165px}.dedication-result{font-size:19px}.card-bottom{font-size:6px}.copy-button{font-size:7px}.site-footer{padding:19px}.footer-brand{font-size:15px}.back-top{font-size:7px}.toast{max-width:calc(100vw - 26px);white-space:normal;text-align:center;width:max-content}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+
+
+
+@media (hover:hover) and (pointer:fine){.hero::after{content:'';position:absolute;z-index:1;inset:0;pointer-events:none;opacity:0;background:radial-gradient(190px circle at var(--pointer-x,50%) var(--pointer-y,50%),rgba(220,132,167,.16),transparent 78%);transition:opacity .28s ease}.hero.pointer-active::after{opacity:1}}
+.cursor-mote{position:absolute;z-index:1;pointer-events:none;color:#f1bdc8;text-shadow:0 0 13px rgba(239,130,144,.9);font-size:12px;animation:mote-drift .9s ease-out forwards}
+.hero.is-bursting .hero-image{animation:moon-ripple .86s ease-out}
+.hero.is-bursting .moon-stamp{animation:stamp-turn .82s cubic-bezier(.2,.8,.2,1)}
+@keyframes mote-drift{0%{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(-15deg)}20%{opacity:.9}100%{opacity:0;transform:translate(calc(-50% + var(--mote-drift,10px)),-34px) scale(1.15) rotate(55deg)}}
+@keyframes moon-ripple{0%{filter:brightness(1);transform:scale(1.015)}32%{filter:brightness(1.24) saturate(1.28);transform:scale(1.06)}100%{filter:brightness(1);transform:scale(1.045)}}
+@keyframes stamp-turn{0%{transform:rotate(12deg) scale(1)}42%{transform:rotate(205deg) scale(1.13)}100%{transform:rotate(372deg) scale(1)}}
+@media(prefers-reduced-motion:reduce){.hero.is-bursting .hero-image,.hero.is-bursting .moon-stamp,.cursor-mote{animation:none!important}.hero::after{display:none}}
+
+
+
+
+@media (hover:hover) and (pointer:fine){.hero::after{content:'';position:absolute;z-index:1;inset:0;pointer-events:none;opacity:0;background:radial-gradient(190px circle at var(--pointer-x,50%) var(--pointer-y,50%),rgba(220,132,167,.16),transparent 78%);transition:opacity .28s ease}.hero.pointer-active::after{opacity:1}}
+.cursor-mote{position:absolute;z-index:1;pointer-events:none;color:#f1bdc8;text-shadow:0 0 13px rgba(239,130,144,.9);font-size:12px;animation:mote-drift .9s ease-out forwards}
+.hero.is-bursting .hero-image{animation:moon-ripple .86s ease-out}
+.hero.is-bursting .moon-stamp{animation:stamp-turn .82s cubic-bezier(.2,.8,.2,1)}
+@keyframes mote-drift{0%{opacity:0;transform:translate(-50%,-50%) scale(.35) rotate(-15deg)}20%{opacity:.9}100%{opacity:0;transform:translate(calc(-50% + var(--mote-drift,10px)),-34px) scale(1.15) rotate(55deg)}}
+@keyframes moon-ripple{0%{filter:brightness(1);transform:scale(1.015)}32%{filter:brightness(1.24) saturate(1.28);transform:scale(1.06)}100%{filter:brightness(1);transform:scale(1.045)}}
+@keyframes stamp-turn{0%{transform:rotate(12deg) scale(1)}42%{transform:rotate(205deg) scale(1.13)}100%{transform:rotate(372deg) scale(1)}}
+@media(prefers-reduced-motion:reduce){.hero.is-bursting .hero-image,.hero.is-bursting .moon-stamp,.cursor-mote{animation:none!important}.hero::after{display:none}}
+
+
+.moon-stamp{cursor:pointer;padding:0;font-family:var(--sans);transition:box-shadow .25s,border-color .25s,transform .25s}.moon-stamp:hover{border-color:rgba(239,130,144,.72);box-shadow:0 0 28px rgba(239,130,144,.15);transform:rotate(4deg) scale(1.04)}.moon-stamp:focus-visible{outline:2px solid var(--rose-hot);outline-offset:5px}.moon-stamp.seal-tapped{animation:seal-tap .24s ease-out}
+.game-dialog{width:min(560px,calc(100vw - 28px));max-width:560px;max-height:calc(100dvh - 32px);padding:0;border:1px solid rgba(211,183,131,.38);background:#17101f;color:var(--ivory);box-shadow:0 25px 90px rgba(0,0,0,.55);overflow:auto}.game-dialog::backdrop{background:rgba(7,4,11,.79);backdrop-filter:blur(8px)}.game-dialog-inner{position:relative;padding:35px 36px 25px;background:radial-gradient(ellipse at 50% 0,rgba(123,53,91,.26),transparent 57%),#17101f}.game-close{position:absolute;top:14px;right:16px;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:transparent;color:#d8c5d0;font-size:22px;line-height:1;cursor:pointer}.game-close:hover{border-color:var(--rose);color:#fff}.game-dialog h2{font:400 clamp(40px,8vw,58px)/.95 var(--serif);letter-spacing:-.035em;margin:0 0 11px}.game-dialog h2 em{color:#df9aaa}.game-instructions{max-width:420px;color:#ae9eaa;font-size:11px;line-height:1.75;margin-bottom:20px}.game-stats{display:flex;justify-content:space-between;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 1px;color:#a994a4;font-size:8px;letter-spacing:.17em}.game-stats b{font:500 19px var(--serif);color:#f2e5df;padding-left:7px}.game-arena{position:relative;min-height:208px;margin:14px 0 17px;overflow:hidden;border:1px solid rgba(239,217,222,.14);background:radial-gradient(ellipse at center,rgba(114,57,89,.17),rgba(14,9,18,.36)),repeating-radial-gradient(circle at 50% 50%,transparent 0 30px,rgba(239,217,222,.025) 31px 32px);display:grid;place-items:center}.game-arena.is-playing{border-color:rgba(208,106,130,.42);box-shadow:inset 0 0 40px rgba(138,53,91,.12)}.game-message{max-width:80%;margin:0;text-align:center;font:400 20px/1.25 var(--serif);color:#d9c8d2}.game-arena.is-playing .game-message{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:max-content;max-width:90%;font:8px var(--sans);letter-spacing:.06em;color:#aa98a7}.game-target{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border:1px solid rgba(239,130,144,.75);border-radius:50%;background:radial-gradient(circle,rgba(238,135,158,.34),rgba(104,46,86,.18));color:#ffe8ec;font-size:23px;line-height:1;cursor:pointer;box-shadow:0 0 19px rgba(239,130,144,.3);animation:target-appear .3s cubic-bezier(.2,.8,.2,1)}.game-target:hover{filter:brightness(1.3);box-shadow:0 0 27px rgba(239,130,144,.62)}.game-target:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}.game-target[hidden]{display:none}.game-start{width:100%;justify-content:space-between}.game-footnote{margin:14px 0 0;text-align:center;font-size:8px;letter-spacing:.07em;color:#8c7a8b}.secret-game-open{overflow:hidden}
+@keyframes target-appear{from{opacity:0;scale:.35}to{opacity:1;scale:1}}@keyframes seal-tap{50%{transform:rotate(-7deg) scale(.93)}}
+@media(max-width:500px){.game-dialog-inner{padding:33px 20px 20px}.game-arena{min-height:195px}.game-dialog .eyebrow{font-size:8px}.game-instructions{font-size:10px}.game-message{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.moon-stamp.seal-tapped,.game-target{animation:none!important}}
+
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#ritual">Saltar al ritual</a>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#inicio" aria-label="Santuario del desorden, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="19" stroke="currentColor" stroke-width=".8"/><path d="M27.7 8.3a14.2 14.2 0 1 0 8 25.8A15.5 15.5 0 0 1 27.7 8.3Z" fill="currentColor"/><path d="m11 11 1.1 2.3 2.4 1.1-2.4 1.1-1.1 2.4-1.1-2.4-2.4-1.1 2.4-1.1L11 11Z" fill="currentColor"/></svg>
+          </span>
+          <span class="brand-copy"><span class="brand-name">Santuario del desorden</span><span class="brand-caption">capítulo ∞ · después de medianoche</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="#ritual">El ritual</a>
+          <a href="#oraculo">Oráculo</a>
+          <a href="#dedicatoria">Deja tu huella</a>
+        </nav>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false" title="Activar o silenciar campanilla">
+          <span class="sound-dot" aria-hidden="true"></span><span id="soundLabel">SILENCIO</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+          <div class="hero-image" aria-hidden="true"></div>
+          <div class="hero-vignette" aria-hidden="true"></div>
+          <div class="hero-sparkles" id="heroSparkles" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> Una pequeña invitación a portarse mal</p>
+            <h1 id="hero-title">Buenas noches,<br /><em>almas pecadoras</em></h1>
+            <p class="hero-subtitle">Es buen momento para crear el caos<span class="blink">.</span></p>
+            <p class="hero-note">La luna ya dio permiso. <span>Nosotros no preguntamos dos veces.</span></p>
+            <div class="hero-actions">
+              <button class="button button-primary" id="unleashButton" type="button">
+                <span class="button-star" aria-hidden="true">✳</span> Desatar el caos <span class="button-arrow" aria-hidden="true">↗</span>
+              </button>
+              <a class="text-link" href="#ritual">Ver qué pasa <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <div class="hero-side-note" aria-hidden="true"><span>27° 11' de mala idea</span><i></i><span>la noche está de nuestro lado</span></div>
+          <button class="moon-stamp" id="secretTrigger" type="button" aria-label="Sello lunar secreto" title="La luna guarda un secreto"><span>HECHO<br />BAJO<br />LA LUNA</span><b aria-hidden="true">✳</b></button>
+          <div class="hero-bottom">
+            <span class="scroll-hint"><span class="scroll-line"></span> baja sin miedo</span>
+            <div class="mood-readout"><span class="pulse-dot"></span><span id="moodText">LA NOCHE ESTÁ EN CALMA</span><span class="mood-divider">/</span><span>NIVEL <b id="heroLevel">08</b></span></div>
+          </div>
+        </section>
+
+        <section class="ritual-section section-wrap" id="ritual" aria-labelledby="ritual-title">
+          <div class="section-heading">
+            <p class="section-index">01 <span>/</span> La ceremonia</p>
+            <div class="heading-main"><div><p class="eyebrow">Un ritual pequeñito, consecuencias dudosas</p><h2 id="ritual-title">Toca el sello.<br /><em>Que se entere la noche.</em></h2></div><p class="heading-aside">No hace falta creer.<br />Solo tener ganas de ver<br />qué tan lejos llega.</p></div>
+          </div>
+          <div class="ritual-layout">
+            <div class="ritual-intro"><span class="orbital-mark" aria-hidden="true">☾</span><p>Cada travesura suma. El universo es dramático, pero sabe recuperarse.</p><span class="fine-print">elige tu propia mala influencia ↘</span></div>
+            <div class="ritual-list" role="group" aria-label="Elige un ritual para subir el nivel de caos">
+              <button class="ritual-card" type="button" data-ritual="mecha" data-boost="18">
+                <span class="ritual-number">I.</span><span class="ritual-icon" aria-hidden="true">✦</span><span class="ritual-card-copy"><strong>Prender la mecha</strong><small>Una chispa. Cero arrepentimientos.</small></span><span class="ritual-plus" aria-hidden="true">＋</span>
+              </button>
+              <button class="ritual-card" type="button" data-ritual="luna" data-boost="24">
+                <span class="ritual-number">II.</span><span class="ritual-icon moon-icon" aria-hidden="true">☾</span><span class="ritual-card-copy"><strong>Girar la luna</strong><small>Para que la suerte mire de este lado.</small></span><span class="ritual-plus" aria-hidden="true">＋</span>
+              </button>
+              <button class="ritual-card" type="button" data-ritual="suerte" data-boost="14">
+                <span class="ritual-number">III.</span><span class="ritual-icon" aria-hidden="true">⌁</span><span class="ritual-card-copy"><strong>Invocar la suerte</strong><small>Que llegue. Sin hacer preguntas.</small></span><span class="ritual-plus" aria-hidden="true">＋</span>
+              </button>
+            </div>
+          </div>
+          <div class="chaos-console" aria-label="Medidor del caos">
+            <div class="console-label"><span class="console-pip"></span><span>TERMÓMETRO DE TRAVESURAS</span></div>
+            <div class="meter-track" id="chaosMeter" role="progressbar" aria-label="Nivel de caos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="8"><span class="meter-fill" id="meterFill"></span><span class="meter-tick" aria-hidden="true"></span></div>
+            <div class="console-bottom"><span id="meterMessage">Todo sospechosamente tranquilo</span><span><b id="meterValue">08</b><small> / 100</small></span></div>
+            <button class="reset-button" id="calmButton" type="button">Contener el caos <span aria-hidden="true">↺</span></button>
+          </div>
+        </section>
+
+        <section class="oracle-section" id="oraculo" aria-labelledby="oracle-title">
+          <div class="oracle-backdrop" aria-hidden="true"></div>
+          <div class="oracle-inner section-wrap">
+            <div class="oracle-label"><span class="section-index">02 <span>/</span> El oráculo</span><span class="oracle-coordinates">VISTA EN: 00:00 Y TANTITO MÁS</span></div>
+            <div class="oracle-content">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <div class="oracle-copy"><p class="eyebrow">Una verdad que nadie pidió</p><h2 id="oracleQuote">Si vas a hacer una tontería, que al menos te quede una buena historia.</h2><p class="oracle-attribution">— el oráculo, que también está improvisando</p></div>
+              <button class="oracle-button" id="oracleButton" type="button" aria-label="Pedir otra profecía"><span aria-hidden="true">✳</span><small>OTRA<br />PROFECÍA</small><b aria-hidden="true">↻</b></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="dedication-section section-wrap" id="dedicatoria" aria-labelledby="dedication-title">
+          <div class="section-heading dedication-heading">
+            <p class="section-index">03 <span>/</span> El archivo de la noche</p>
+            <div class="heading-main"><div><p class="eyebrow">Deja una mala influencia por escrito</p><h2 id="dedication-title">Una huella<br /><em>para el desorden.</em></h2></div><p class="heading-aside">No se guarda en ningún lado.<br />La luna promete olvidar.<br />Probablemente.</p></div>
+          </div>
+          <div class="dedication-layout">
+            <form class="dedication-form" id="dedicationForm">
+              <label for="dedicationName">¿A quién le dedicamos esta noche?</label>
+              <div class="input-row"><input id="dedicationName" name="name" type="text" maxlength="38" placeholder="Un nombre, un apodo, un cómplice…" autocomplete="off" /><button class="button button-secondary" type="submit">Sellar la dedicatoria <span aria-hidden="true">↗</span></button></div>
+              <p class="form-hint"><span aria-hidden="true">✦</span> Esto solo vive en esta pantalla. Como las buenas decisiones.</p>
+            </form>
+            <article class="dedication-card" aria-live="polite" aria-atomic="true">
+              <div class="card-topline"><span>NOTA DE CAMPO Nº <b id="noteNumber">001</b></span><span class="card-moon" aria-hidden="true">☾</span></div>
+              <p class="dedication-result" id="dedicationResult">A quien anda despierto a estas horas: que el próximo plan te salga mejor que la idea.</p>
+              <div class="card-bottom"><span>sellada con un poquito de maldad</span><button class="copy-button" id="copyButton" type="button">Copiar nota <span aria-hidden="true">▣</span></button></div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <a class="footer-brand" href="#inicio"><span aria-hidden="true">☾</span> Santuario del desorden</a>
+        <p>Hecho para las almas que dicen «ya me voy» y se quedan otra hora.</p>
+        <a class="back-top" href="#inicio">VOLVER ARRIBA <span aria-hidden="true">↑</span></a>
+      </footer>
+      <dialog class="game-dialog" id="secretGameDialog" aria-labelledby="gameTitle">
+        <div class="game-dialog-inner">
+          <button class="game-close" id="closeSecretGame" type="button" aria-label="Cerrar minijuego">×</button>
+          <p class="eyebrow">Un secreto debajo del sello</p>
+          <h2 id="gameTitle">Caza las <em>chispas</em></h2>
+          <p class="game-instructions">Atrapa tantas chispas como puedas antes de que se acabe el tiempo. Toca, haz clic o usa Enter.</p>
+          <div class="game-stats"><span>CHISPAS <b id="gameScore">00</b></span><span>TIEMPO <b id="gameTimer">12</b>s</span></div>
+          <div class="game-arena" id="gameArena">
+            <p class="game-message" id="gameMessage" aria-live="polite">¿Lista el alma? Pulsa comenzar y que empiece la cacería.</p>
+            <button class="game-target" id="gameTarget" type="button" aria-label="Atrapar chispa" hidden>✦</button>
+          </div>
+          <button class="button button-primary game-start" id="gameStart" type="button"><span id="gameStartLabel">Comenzar cacería</span><span aria-hidden="true">↗</span></button>
+          <p class="game-footnote">Cinco toques al sello abren esta puerta. Ya sabes el secreto.</p>
+        </div>
+      </dialog>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+    <script>
+(() => {
+  const root = document.documentElement;
+  const body = document.body;
+  const hero = document.querySelector('.hero');
+  const meter = document.querySelector('#chaosMeter');
+  const meterValue = document.querySelector('#meterValue');
+  const heroLevel = document.querySelector('#heroLevel');
+  const moodText = document.querySelector('#moodText');
+  const meterMessage = document.querySelector('#meterMessage');
+  const unleashButton = document.querySelector('#unleashButton');
+  const calmButton = document.querySelector('#calmButton');
+  const sparkles = document.querySelector('#heroSparkles');
+  const toast = document.querySelector('#toast');
+  const soundToggle = document.querySelector('#soundToggle');
+  const soundLabel = document.querySelector('#soundLabel');
+  const oracleQuote = document.querySelector('#oracleQuote');
+  const oracleButton = document.querySelector('#oracleButton');
+  const dedicationForm = document.querySelector('#dedicationForm');
+  const dedicationName = document.querySelector('#dedicationName');
+  const dedicationResult = document.querySelector('#dedicationResult');
+  const copyButton = document.querySelector('#copyButton');
+  const noteNumber = document.querySelector('#noteNumber');
+  const secretTrigger = document.querySelector('#secretTrigger');
+  const gameDialog = document.querySelector('#secretGameDialog');
+  const closeSecretGame = document.querySelector('#closeSecretGame');
+  const gameStart = document.querySelector('#gameStart');
+  const gameStartLabel = document.querySelector('#gameStartLabel');
+  const gameTarget = document.querySelector('#gameTarget');
+  const gameArena = document.querySelector('#gameArena');
+  const gameMessage = document.querySelector('#gameMessage');
+  const gameScoreDisplay = document.querySelector('#gameScore');
+  const gameTimerDisplay = document.querySelector('#gameTimer');
+
+  let chaos = 8;
+  let toastTimer;
+  let soundOn = false;
+  let audioContext;
+  let dedicationCount = 1;
+  let lastQuote = -1;
+  let moonTapCount = 0;
+  let moonTapTimer;
+  let gameClock;
+  let gameScore = 0;
+  let gameSeconds = 12;
+  const gameDuration = 12;
+  const fortunes = [
+    'Si vas a hacer una tontería, que al menos te quede una buena historia.',
+    'Tu señal para mandar ese mensaje es… respirar hondo y mandarlo.',
+    'La suerte favorece a quien ya abrió la puerta y fingió que fue sin querer.',
+    'No es una mala idea si todavía no la has probado. Creo.',
+    'Las mejores decisiones suelen empezar con «una última y nos vamos».',
+    'Hoy los astros dicen sí. Mañana los astros no se acuerdan.'
+  ];
+  const sparkSymbols = ['✦', '✧', '✳', '·', '☾', '✹'];
+  const soundPatterns = {
+    bell: [[784, 0, 0.52, 'sine']],
+    chaos: [[392, 0, 0.2, 'triangle'], [523, 0.09, 0.21, 'triangle'], [659, 0.19, 0.38, 'sine']],
+    ritual: [[659, 0, 0.24, 'sine'], [880, 0.12, 0.42, 'sine']],
+    calm: [[659, 0, 0.24, 'sine'], [523, 0.14, 0.31, 'sine'], [392, 0.31, 0.48, 'sine']],
+    oracle: [[587, 0, 0.32, 'sine'], [880, 0.12, 0.55, 'triangle']],
+    dedication: [[523, 0, 0.2, 'sine'], [659, 0.1, 0.2, 'sine'], [784, 0.2, 0.38, 'sine']],
+    secret: [[523, 0, 0.18, 'sine'], [659, 0.1, 0.18, 'sine'], [1046, 0.2, 0.55, 'triangle']],
+    catch: [[988, 0, 0.12, 'sine'], [1175, 0.05, 0.2, 'sine']]
+  };
+
+  function notify(message) {
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2500);
+  }
+
+  function playSound(kind = 'bell') {
+    if (!soundOn) return;
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      audioContext ||= new AudioContextClass();
+      if (audioContext.state === 'suspended') audioContext.resume();
+      const pattern = soundPatterns[kind] || soundPatterns.bell;
+      pattern.forEach(([frequency, delay, duration, waveform]) => {
+        const startAt = audioContext.currentTime + delay;
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = waveform;
+        oscillator.frequency.setValueAtTime(frequency, startAt);
+        gain.gain.setValueAtTime(0.0001, startAt);
+        gain.gain.exponentialRampToValueAtTime(0.026, startAt + 0.025);
+        gain.gain.exponentialRampToValueAtTime(0.0001, startAt + duration);
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.start(startAt);
+        oscillator.stop(startAt + duration + 0.03);
+      });
+    } catch (_) {
+      // La experiencia funciona sin audio: algunos navegadores bloquean Web Audio.
+    }
+  }
+
+  function updateChaos(next, announce = true) {
+    chaos = Math.max(0, Math.min(100, next));
+    root.style.setProperty('--chaos', chaos);
+    meter.setAttribute('aria-valuenow', String(chaos));
+    meterValue.textContent = String(chaos).padStart(2, '0');
+    heroLevel.textContent = String(chaos).padStart(2, '0');
+    const state = chaos >= 70 ? 'CAOS DESATADO' : chaos >= 35 ? 'LA NOCHE SE ANIMA' : chaos > 8 ? 'ALGO SE ESTÁ TRAMANDO' : 'LA NOCHE ESTÁ EN CALMA';
+    moodText.textContent = state;
+    meterMessage.textContent = chaos >= 70 ? 'Ya nadie está siguiendo el plan' : chaos >= 35 ? 'La luna está tomando nota' : chaos > 8 ? 'El universo ya sospecha algo' : 'Todo sospechosamente tranquilo';
+    body.classList.toggle('chaos-mode', chaos >= 35);
+    if (announce) playSound('bell');
+  }
+
+  function throwSparkles(count = 12) {
+    for (let index = 0; index < count; index += 1) {
+      const spark = document.createElement('span');
+      spark.className = 'floating-spark';
+      spark.setAttribute('aria-hidden', 'true');
+      spark.textContent = sparkSymbols[Math.floor(Math.random() * sparkSymbols.length)];
+      spark.style.left = `${12 + Math.random() * 76}%`;
+      spark.style.top = `${35 + Math.random() * 45}%`;
+      spark.style.setProperty('--size', `${10 + Math.random() * 15}px`);
+      spark.style.setProperty('--drift', `${Math.round((Math.random() - 0.5) * 90)}px`);
+      sparkles.append(spark);
+      window.setTimeout(() => spark.remove(), 1750);
+    }
+  }
+
+  function moveGameTarget() {
+    gameTarget.style.left = `${12 + Math.random() * 76}%`;
+    gameTarget.style.top = `${18 + Math.random() * 66}%`;
+  }
+
+  function finishSecretGame() {
+    window.clearInterval(gameClock);
+    gameClock = null;
+    gameTarget.hidden = true;
+    gameTarget.disabled = true;
+    gameArena.classList.remove('is-playing');
+    gameMessage.textContent = `Fin de la cacería: atrapaste ${gameScore} ${gameScore === 1 ? 'chispa' : 'chispas'}.`;
+    gameStartLabel.textContent = 'Jugar otra vez';
+    playSound(gameScore >= 7 ? 'dedication' : 'calm');
+  }
+
+  function startSecretGame() {
+    window.clearInterval(gameClock);
+    gameScore = 0;
+    gameSeconds = gameDuration;
+    gameScoreDisplay.textContent = '00';
+    gameTimerDisplay.textContent = String(gameSeconds);
+    gameMessage.textContent = '¡Atrápalas! Cada chispa vale un punto.';
+    gameTarget.hidden = false;
+    gameTarget.disabled = false;
+    gameArena.classList.add('is-playing');
+    gameStartLabel.textContent = 'Reiniciar cacería';
+    moveGameTarget();
+    gameTarget.focus();
+    gameClock = window.setInterval(() => {
+      gameSeconds -= 1;
+      gameTimerDisplay.textContent = String(gameSeconds);
+      if (gameSeconds <= 0) finishSecretGame();
+    }, 1000);
+  }
+
+  function openSecretGame() {
+    moonTapCount = 0;
+    window.clearTimeout(moonTapTimer);
+    playSound('secret');
+    gameDialog.showModal();
+    body.classList.add('secret-game-open');
+  }
+
+  unleashButton.addEventListener('click', () => {
+    updateChaos(Math.max(chaos + 31, 43), false);
+    playSound('chaos');
+    hero.classList.add('is-bursting');
+    window.setTimeout(() => hero.classList.remove('is-bursting'), 900);
+    throwSparkles(22);
+    notify('Queda oficialmente inaugurada la mala idea.');
+  });
+
+  document.querySelectorAll('.ritual-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const boost = Number(card.dataset.boost) || 15;
+      card.classList.add('is-lit');
+      window.setTimeout(() => card.classList.remove('is-lit'), 950);
+      updateChaos(chaos + boost, false);
+      playSound('ritual');
+      throwSparkles(10);
+      const ritualNames = { mecha: 'Una chispa. Ya no hay vuelta atrás.', luna: 'La luna quedó de nuestro lado.', suerte: 'La suerte dice que sí. Qué conveniente.' };
+      notify(ritualNames[card.dataset.ritual] || 'El ritual ha sido sellado.');
+    });
+  });
+
+  calmButton.addEventListener('click', () => {
+    updateChaos(8, false);
+    playSound('calm');
+    document.querySelectorAll('.ritual-card.is-lit').forEach((card) => card.classList.remove('is-lit'));
+    notify('Shhh… aquí no pasó absolutamente nada.');
+  });
+
+  soundToggle.addEventListener('click', () => {
+    soundOn = !soundOn;
+    soundToggle.setAttribute('aria-pressed', String(soundOn));
+    soundLabel.textContent = soundOn ? 'CAMPANILLA' : 'SILENCIO';
+    if (soundOn) playSound('bell');
+    notify(soundOn ? 'Campanilla ritual activada.' : 'La noche vuelve al silencio.');
+  });
+
+  oracleButton.addEventListener('click', () => {
+    let next = Math.floor(Math.random() * fortunes.length);
+    if (fortunes.length > 1 && next === lastQuote) next = (next + 1) % fortunes.length;
+    lastQuote = next;
+    oracleQuote.classList.add('is-changing');
+    window.setTimeout(() => {
+      oracleQuote.textContent = fortunes[next];
+      oracleQuote.classList.remove('is-changing');
+    }, 180);
+    playSound('oracle');
+  });
+
+  dedicationForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = dedicationName.value.trim().slice(0, 38);
+    if (!name) {
+      dedicationName.focus();
+      notify('Primero necesitamos un cómplice.');
+      return;
+    }
+    dedicationResult.textContent = `Para ${name}: que esta noche te encuentre haciendo eso que mañana vas a contar riéndote.`;
+    dedicationCount += 1;
+    noteNumber.textContent = String(dedicationCount).padStart(3, '0');
+    updateChaos(chaos + 9, false);
+    playSound('dedication');
+    throwSparkles(9);
+    notify(`Dedicatoria sellada para ${name}.`);
+    dedicationName.value = '';
+  });
+
+  copyButton.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(dedicationResult.textContent);
+      copyButton.innerHTML = 'Copiado <span aria-hidden="true">✓</span>';
+      notify('La nota ya está en tu portapapeles.');
+    } catch (_) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(dedicationResult);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      notify('Seleccionamos la nota; cópiala con tu dispositivo.');
+    }
+    window.setTimeout(() => { copyButton.innerHTML = 'Copiar nota <span aria-hidden="true">▣</span>'; }, 1800);
+  });
+
+  secretTrigger.addEventListener('click', () => {
+    moonTapCount += 1;
+    secretTrigger.classList.add('seal-tapped');
+    window.setTimeout(() => secretTrigger.classList.remove('seal-tapped'), 260);
+    window.clearTimeout(moonTapTimer);
+    if (moonTapCount >= 5) {
+      openSecretGame();
+    } else {
+      moonTapTimer = window.setTimeout(() => { moonTapCount = 0; }, 2400);
+    }
+  });
+
+  gameStart.addEventListener('click', startSecretGame);
+  gameTarget.addEventListener('click', () => {
+    if (!gameClock) return;
+    gameScore += 1;
+    gameScoreDisplay.textContent = String(gameScore).padStart(2, '0');
+    playSound('catch');
+    moveGameTarget();
+  });
+  closeSecretGame.addEventListener('click', () => gameDialog.close());
+  gameDialog.addEventListener('click', (event) => {
+    if (event.target === gameDialog) gameDialog.close();
+  });
+  gameDialog.addEventListener('close', () => {
+    window.clearInterval(gameClock);
+    gameClock = null;
+    gameTarget.hidden = true;
+    gameTarget.disabled = true;
+    gameArena.classList.remove('is-playing');
+    body.classList.remove('secret-game-open');
+    gameStartLabel.textContent = 'Comenzar cacería';
+    gameTimerDisplay.textContent = String(gameDuration);
+    gameScoreDisplay.textContent = '00';
+    gameMessage.textContent = '¿Lista el alma? Pulsa comenzar y que empiece la cacería.';
+  });
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (finePointer && !reducedMotion) {
+    let lastMoteAt = 0;
+    hero.addEventListener('pointerenter', () => hero.classList.add('pointer-active'));
+    hero.addEventListener('pointerleave', () => hero.classList.remove('pointer-active'));
+    hero.addEventListener('pointermove', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      const bounds = hero.getBoundingClientRect();
+      const x = event.clientX - bounds.left;
+      const y = event.clientY - bounds.top;
+      hero.style.setProperty('--pointer-x', `${x}px`);
+      hero.style.setProperty('--pointer-y', `${y}px`);
+      const now = performance.now();
+      if (now - lastMoteAt < 85) return;
+      lastMoteAt = now;
+      const mote = document.createElement('span');
+      mote.className = 'cursor-mote';
+      mote.setAttribute('aria-hidden', 'true');
+      mote.textContent = sparkSymbols[Math.floor(Math.random() * sparkSymbols.length)];
+      mote.style.left = `${x}px`;
+      mote.style.top = `${y}px`;
+      mote.style.setProperty('--mote-drift', `${Math.round((Math.random() - 0.5) * 36)}px`);
+      hero.append(mote);
+      window.setTimeout(() => mote.remove(), 950);
+    });
+  }
+})();
+
+    </script>
+  </body>
+</html>
